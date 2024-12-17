@@ -14,6 +14,7 @@ To accelerate the reinforcement learning process in the given scenario, we propo
 ## Implementation
 1. Regarding 'state': we generate the state space for Q-learning, which consists of all possible permutations of binary offloading decisions. Each state is represented as a binary matrix with n rows (indicating the number of tasks from edge users) and k columns (representing the number of edge servers). Each cell in the matrix specifies whether a given task is allocated to a particular edge server.
 2. Regarding 'reward': if the 'next state' causes any edge server to transition into an 'idle' state, resulting in an available edge server with sufficient vacant processor utilization not being utilized for task execution, the agent receives the negative reward.
+3. Regarding 'reward': if the agent assigns task t<sub>1</sub> to server Si or task Tj to server Sj in the current state and reassigns them to server Sj and Si, respectively, a negative reward is incurred. This transition involves the transmission of tasks from one server to another, resulting in data transmission, bandwidth overhead, preempting task execution, and additional caching and queuing processes.
 
 ## Citation
 If you found this code or our work useful, please cite it as:
