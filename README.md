@@ -11,7 +11,8 @@ To accelerate the reinforcement learning process in the given scenario, we propo
 - We prioritize tasks from edge users based on their deadlines (inspired by EDF), where tasks with the closest deadlines are given the highest priority in PBQ.
 - We devide the whole tasks from edge users that are supposed to be allocated to edge servers into small portions, i.e., we divude the tasks in the group of four tasks instead of the whole tasks such as  
 
-1st step: we generate the state space for Q-learning, which consists of all possible permutations of binary offloading decisions. Each state is represented as a binary matrix with n rows (indicating the number of tasks from edge users) and k columns (representing the number of edge servers). Each cell in the matrix specifies whether a given task is allocated to a particular edge server.
+## Implementation
+1. we generate the state space for Q-learning, which consists of all possible permutations of binary offloading decisions. Each state is represented as a binary matrix with n rows (indicating the number of tasks from edge users) and k columns (representing the number of edge servers). Each cell in the matrix specifies whether a given task is allocated to a particular edge server.
 
 ## Citation
 If you found this code or our work useful, please cite it as:
