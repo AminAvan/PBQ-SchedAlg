@@ -9,7 +9,7 @@ A key challenge of reinforcement learning (RL) in edge computing environments is
 
 To accelerate the RL-agent learning process, we design the following techniques in the PBQ method:
 - We prioritize tasks from edge users based on their deadlines (inspired by EDF), where tasks with the closest deadlines are given the highest priority in PBQ.
-- We partition the tasks offloaded by edge users, intended for allocation to edge servers, into smaller subsets. Each subset comprises tasks with the earliest deadlines, followed sequentially by subsets containing tasks with the next earliest deadlines. Consequently, the PBQ formulates a Markov Decision Process (MDP) for each subset of tasks individually, rather than for the entire set of tasks collectively.  
+- We partition the tasks offloaded by edge users, intended for allocation to edge servers, into smaller subsets. Each subset comprises tasks with the earliest deadlines, followed sequentially by subsets containing tasks with the next earliest deadlines. Consequently, the PBQ formulates a MDP for each subset of tasks individually, rather than for the entire set of tasks collectively.  
 
 ## Implementation
 1. Regarding 'state': we generate the state space for Q-learning, which consists of all possible permutations of binary offloading decisions. Each state is represented as a binary matrix with n rows (indicating the number of tasks from edge users) and k columns (representing the number of edge servers). Each cell in the matrix specifies whether a given task is allocated to a particular edge server.
