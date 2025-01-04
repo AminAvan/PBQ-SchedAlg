@@ -17,7 +17,7 @@ To accelerate the RL-agent learning process, we design the following techniques 
 2. Regarding 'reward':
    1. If the 'next state' causes any edge server to transition into an 'idle' state, resulting in an available edge server with sufficient vacant processor utilization not being utilized for task execution, the agent receives the negative reward.
    2. If the agent initially assigns t<sub>1</sub> to S<sub>1</sub> and t<sub>2</sub> to S<sub>2</sub>, but reassigns them as t<sub>1</sub> → S<sub>2</sub> and t<sub>2</sub> → S<sub>1</sub> in the next state, a negative reward is incurred due to task transmission between servers. This results in data transfer overhead, increased bandwidth usage, interrupted task execution, and additional caching and queuing.
-   3. If the <sub>next state</sub> equals the current state while assigned tasks still have "execution time", the agent receives a positive reward, as unnecessary task transmission between servers does not occur.
+   3. If the 'next state' equals the 'current state' while assigned tasks still have "execution time", the agent receives a positive reward, as unnecessary task transmission between servers does not occur.
 ## Citation
 If you found this code or our work useful, please cite it as:
 
