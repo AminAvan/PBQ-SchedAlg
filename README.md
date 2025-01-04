@@ -13,10 +13,10 @@ To accelerate the RL-agent learning process, we design the following techniques 
 
 ## Implementation
 1. Regarding 'state': we generate the states for Q-learning, which consists of all possible permutations of binary offloading decisions. Each state is represented as a binary matrix with 'n' rows (number of tasks from edge users) and 'k' columns (number of edge servers). Each cell in the matrix indicates whether a given task is allocated to a specific edge server (represented by a value of '1') or not allocated (represented by a value of '0').
-2. Regarding 'action': At each step, the agent takes an action based on a randomly generated number. If the number is below 0.9, it selects the state with the highest reward from the Q-table; otherwise, it randomly selects the next state. The Q-table is initialized with zeros at the start of the learning process.
+2. Regarding 'action': at each step, the agent takes an action based on a randomly generated number. If the number is below '0.9', it selects the state with the highest reward from the Q-table; otherwise, it randomly selects the next state. The Q-table is initialized with zeros at the start of the learning process.
 2. Regarding 'reward':
    1. If the 'next state' causes any edge server to transition into an 'idle' state, resulting in an available edge server with sufficient vacant processor utilization not being utilized for task execution, the agent receives the negative reward.
-   2. If the agent assigns task **t<sub>1</sub>** to server **S<sub>1</sub>** and task **t<sub>2</sub>** to server **S<sub>2</sub>** in the current state, and then reassigns them to **t<sub>1</sub> -> S<sub>2</sub>** and **t<sub>2</sub> -> S<sub>1</sub>** in the next state, a negative reward is incurred. This transition involves task transmission between servers, leading to data transfer overhead, increased bandwidth usage, preempted task execution, and additional caching and queuing processes.
+   2. If the agent initially assigns t<sub>1</sub> to S<sub>1</sub> and t<sub>2</sub> to S<sub>2</sub>, but reassigns them as t<sub>1</sub> → S<sub>2</sub> and t<sub>2</sub> → S<sub>1</sub> in the next state, a negative reward is incurred due to task transmission between servers. This results in data transfer overhead, increased bandwidth usage, interrupted task execution, and additional caching and queuing.
 
 ## Citation
 If you found this code or our work useful, please cite it as:
