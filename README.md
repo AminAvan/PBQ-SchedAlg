@@ -7,7 +7,7 @@ We propose a Q-learning (QL)-based task scheduling algorithm (named PBQ) for edg
 
 A key challenge of reinforcement learning (RL) in edge computing environments is the large state space, which results in prolonged learning times due to numerous and frequently changing parameters. This delay conflicts with the edge users' demand for rapid task allocation to edge servers.
 
-To accelerate the reinforcement learning process in the given scenario, we propose the following approaches:
+To accelerate the RL-agent learning process, we design the following techniques in the PBQ method:
 - We prioritize tasks from edge users based on their deadlines (inspired by EDF), where tasks with the closest deadlines are given the highest priority in PBQ.
 - We partition the tasks offloaded by edge users, intended for allocation to edge servers, into smaller subsets. Each subset comprises tasks with the earliest deadlines, followed sequentially by subsets containing tasks with the next earliest deadlines. Consequently, the PBQ formulates a Markov Decision Process (MDP) for each subset of tasks individually, rather than for the entire set of tasks collectively.  
 
