@@ -14,7 +14,6 @@ import psutil
 import psutil
 warnings.simplefilter("ignore")
 
-
 def get_memory_usage():
     # Get the current process ID
     process_id = psutil.Process()
@@ -35,6 +34,7 @@ initial_task_dataframe = pd.DataFrame(index=list(range(num_tasks)) ,columns=["us
 user_num = 6
 initial_task_dataframe = pd.read_csv("/content/drive/MyDrive/network_comp_prjct/QED/task_dataframe_24.csv", index_col= 0)
 list_of_cpu_records = []
+
 
 # Define the matrix dimensions
 def state_generator(user_num, server_num):
@@ -75,6 +75,60 @@ def state_generator(user_num, server_num):
   # print("================================")
   return state_list, counter
 
+
+def reward_function(current_state, next_state, num_tasks, num_resources, task_dataframe, done):
+  is_scheduled = False
+  total_reward = 0
+  active_server_num = np.sum(next_state)
+  index_tasks = list(np.where(current_state == 1)[0])
+  # print("current_state", current_state)
+  # print("next_state", next_state)
+  y = False
+  for i in index_tasks:
+      task_slice = task_dataframe.loc[i].copy()
+      task_slice["exection_time"] -= 1
+      task_dataframe.loc[i] = task_slice
+      # task_dataframe.loc[i]["exection_time"] = task_dataframe.loc[i]["exection_time"] -1
+      # pdb.set_trace()
+  # print("\/\/\/\/\/\/")
+  # print("task_dataframe in reward:", task_dataframe)
+  # print("\/\/\/\/\/\/")
+
+  execution_time_list = list(task_dataframe.loc[index_tasks]["exection_time"])
+  all_greater_than_0 = all(x >= 0 for x in execution_time_list)
+  # pdb.set_trace()
+  if all(task_dataframe["exection_time"] == 0):
+    # print("workload scheduled")
+    is_scheduled = True
+    #print("is_scheduled in rwrd func", is_scheduled)
+    #print("workload scheduled, here is the dataframe:", task_dataframe)
+  if active_server_num == 0:
+    total_reward = -((num_resources*(num_tasks*num_resources))**num_tasks)
+    done = True #amin
+  else:
+    #print('The CPU usage is: ', psutil.cpu_percent(1)) # Calling psutil.cpu_precent() for 4 seconds
+    # for tracking the cpu & RAM usage
+    #rec_cpu = 0
+    #rec_cpu = psutil.cpu_percent(1)
+    #if (rec_cpu > 10.0):
+    # with open('/content/drive/MyDrive/network_comp_prjct/QED/QED_RAM_rec_96tasks.csv', mode='a', newline='') as f:
+    #   # create the csv writer
+    #   writer = csv.writer(f)
+    #   # write a row to the csv file
+    #   RAM_REC = psutil.virtual_memory()[2]
+    #   writer.writerow([RAM_REC])
+
+    total_reward = total_reward + (active_server_num*(num_tasks*num_resources))
+    if ((next_state == current_state) & (all_greater_than_0 == True )).any():
+          total_reward = total_reward + (num_resources*(num_tasks*num_resources))
+    elif ((next_state == current_state) & (all_greater_than_0 == False )).any():
+          total_reward = total_reward - (num_resources*(num_tasks*num_resources))
+  #elif -1 in task_dataframe["exection_time"]:
+  if any(task_dataframe["exection_time"] < 0):
+    total_reward = -((num_resources*(num_tasks*num_resources))**num_tasks)
+    # if there is any (-1) in the execution time of dataframe, then it should consider as a GAMEOVER for the learning
+    done = True
+  return total_reward, task_dataframe, done, is_scheduled
 
 
 
@@ -135,6 +189,7 @@ def q_learning(user_num, num_resources, top_not_excuted_tasks):
         # print('==================================================')
         # print('\n')
     return episode_brocker
+
 
 
 #the poit is after first run, it scheduler below than 1 second
