@@ -193,12 +193,9 @@ def q_learning(user_num, num_resources, top_not_excuted_tasks):
 
 
 
-#the poit is after first run, it scheduler below than 1 second
-for j in range(1, 10):
-  # Get and print the memory usage
-  memory_usage = get_memory_usage()
-  print(f"Memory Usage: {memory_usage:.2f} MB")
-
+# Determining the number of times that PBQ performs scheduling is useful for executing multiple runs
+# to compute the average runtime and RAM usage.
+for j in range(1, 2):
   now = datetime.now()
   today = date.today()
   current_time = now.strftime("%H:%M:%S")
@@ -236,7 +233,10 @@ for j in range(1, 10):
   total_time = 0
   total_time=time.time()-start_time
   print("total time of",j,"run is:",total_time)
-  print("\n")
+  # Get and print the memory usage
+  memory_usage = get_memory_usage()
+  print(f"Memory Usage: {memory_usage:.2f} MB")
+
 
 # Get and print the memory usage
 memory_usage = get_memory_usage()
