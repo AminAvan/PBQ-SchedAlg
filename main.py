@@ -32,7 +32,8 @@ num_tasks = 24
 num_resources = 2
 initial_task_dataframe = pd.DataFrame(index=list(range(num_tasks)) ,columns=["user_id", "exection_time", "deadline"])
 user_num = 6
-initial_task_dataframe = pd.read_csv("/content/drive/MyDrive/network_comp_prjct/QED/task_dataframe_24.csv", index_col= 0)
+# input the address for dataset
+initial_task_dataframe = pd.read_csv("datasets/task_dataframe_24.csv", index_col= 0)
 list_of_cpu_records = []
 
 
@@ -193,7 +194,7 @@ def q_learning(user_num, num_resources, top_not_excuted_tasks):
 
 
 #the poit is after first run, it scheduler below than 1 second
-for j in range(1):
+for j in range(1, 10):
   # Get and print the memory usage
   memory_usage = get_memory_usage()
   print(f"Memory Usage: {memory_usage:.2f} MB")
@@ -205,7 +206,7 @@ for j in range(1):
   print("start:", d2,"at", current_time)
   ####
   tem_data_frame = initial_task_dataframe.copy()
-  print("the",j ,"run:")
+  print(f"The {j}th round of runs:")
   # capture the start time
   start_time = 0
   start_time=time.time()
