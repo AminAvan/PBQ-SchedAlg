@@ -31,7 +31,7 @@ Strategies were implemented to accelerate the learning process of RL agents:
 - At each scheduling step, only $m$ tasks with the earliest deadlines ($m$=number of edge users) are processed, reducing the state space. For example, in a network with two servers and five users (each with five tasks), processing only the five earliest tasks yields a $5\times2$ matrix ($=2^{(5\times 2)}$ states) instead of a $25\times2$ matrix ($2^{(25\times 2)}$ states).
 
 ## Dataset
-The dataset includes user indices, task execution times ($c_i$) and deadlines ($d_i$) for each task, as well as the initial available resources at edge servers.
+The dataset includes user indices, task execution times ($c_i$), and deadlines ($d_i$) for each task, as well as the initial available resources at edge servers. Three distinct task sets are provided, comprising 24, 48, and 96 tasks, respectively.
 
 
 ## Citation
