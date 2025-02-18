@@ -20,6 +20,8 @@ To accelerate the RL-agent learning process, we design the following techniques 
    3. If the 'next state' equals the 'current state' while assigned tasks still have "execution time", the agent receives a positive reward, as unnecessary task transmission between servers does not occur.
    4. If the next state results in unassigned tasks being allocated to edge servers without causing overloading, the agent receives a positive reward.
 
+## Priority-Based Q-Learning (PBQ) for Accelerating Reinforcement Learning-Based Task Scheduling in Edge Computing
+
 ## Citation
 If you found this code or our work useful, please cite it as:
 
