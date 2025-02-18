@@ -232,7 +232,7 @@ for j in range(1, 2):
       #print("end:", d2,"at", current_time)
   total_time = 0
   total_time=time.time()-start_time
-  print("total time of",j,"run is:",total_time)
+  print(f"total time of {j}th run is: {total_time}")
   # Get and print the memory usage
   memory_usage = get_memory_usage()
   print(f"Memory Usage: {memory_usage:.2f} MB")
