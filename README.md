@@ -21,6 +21,9 @@ To accelerate the RL-agent learning process, we design the following techniques 
    4. If the next state results in unassigned tasks being allocated to edge servers without causing overloading, the agent receives a positive reward.
 
 ## Priority-Based Q-Learning (PBQ) for Accelerating Reinforcement Learning-Based Task Scheduling in Edge Computing
+Large action-state spaces can slow learning progress and require substantial memory in Q-learning, as the number of states, actions, and the size of the action-state space grow exponentially with each additional variable.
+
+For example, a network with four users and one server has 16 possible states (each state is represented by a binary matrix with columns as servers and rows as users, yielding \(2^4 = 16\) states), while a network with two servers has 256 states (each represented by a \(2 \times 4\) matrix). Fewer and smaller state spaces accelerate learning; thus, eliminating invalid or redundant states can improve Q-learning performance.
 
 ## Citation
 If you found this code or our work useful, please cite it as:
