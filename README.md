@@ -25,10 +25,12 @@ Large action-state spaces can slow learning progress and require substantial mem
 
 For example, a network with four users and one server has $16$ possible states (each state is represented by a binary-matrix with columns as servers and rows as users, yielding $2^{(1\times 4)}=16$ states), while a network with four users and two servers has $256$ states (each represented by a $2 \times 4$ binary-matrix, yielding $2^{(2\times 4)}=256$ states). Fewer and smaller state spaces accelerate learning progress; thus, eliminating invalid or redundant states can improve Q-learning performance.
 
-Approaches to Accelerate the Learning Process of RL-agents:
+Strategies were implemented to accelerate the learning process of RL agents:
+- We
 
 ## Citation
 If you found this code or our work useful, please cite it as:
+
 
 ```bibtex
 @inproceedings{avan2023task,
