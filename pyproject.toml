@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "pbq-edgescheduler-v0001"
+version = "0.1.0"
+description = "package manager for PBQ task scheduling algorithm in edge computing."
+authors = ["AminAvan <amin.avan@ontariotechu.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
