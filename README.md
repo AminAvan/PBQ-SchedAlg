@@ -28,6 +28,7 @@ For example, a network with four users and one server has $16$ possible states (
 Strategies were implemented to accelerate the learning process of RL agents:
 - State spaces that offload tasks to only one server are eliminated when multiple servers are available, promoting load balancing by utilizing all servers rather than overloading some while leaving others idle.
 - State spaces are eliminated when a task is partitioned across multiple servers, as a task occupying all servers prevents other tasks from being served.
+- At each scheduling step, only $m$ tasks with the earliest deadlines ($m=number~of~edge~users$) are processed, reducing the state space. For example, in a network with two servers and five users (each with five tasks), processing only the five earliest tasks yields a $5\times2$ matrix ($2^{(5\times 2)}$) instead of a $25\times2$ matrix ($2^{(25\times 2)}$).
 
 ## Citation
 If you found this code or our work useful, please cite it as:
