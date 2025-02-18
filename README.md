@@ -27,6 +27,7 @@ For example, a network with four users and one server has $16$ possible states (
 
 Strategies were implemented to accelerate the learning process of RL agents:
 - State spaces that offload tasks to only one server are eliminated when multiple servers are available, promoting load balancing by utilizing all servers rather than overloading some while leaving others idle.
+- State spaces are eliminated when a task is partitioned across multiple servers, as a task occupying all servers prevents other tasks from being served.
 
 ## Citation
 If you found this code or our work useful, please cite it as:
