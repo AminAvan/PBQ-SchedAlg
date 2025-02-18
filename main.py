@@ -27,11 +27,10 @@ def get_memory_usage():
     return memory_usage_mb
 
 
-
-num_tasks = 24
-num_resources = 2
+user_num = 6 # number of edge users
+num_tasks = 24 # there are tasksets for 24 tasks, 48 tasks, 96 tasks in 'datasets' directory
+num_resources = 1 # number of available edge servers that can be 1 or 2
 initial_task_dataframe = pd.DataFrame(index=list(range(num_tasks)) ,columns=["user_id", "exection_time", "deadline"])
-user_num = 6
 # input the address for dataset
 initial_task_dataframe = pd.read_csv("datasets/task_dataframe_24.csv", index_col= 0)
 list_of_cpu_records = []
@@ -200,7 +199,7 @@ for j in range(1, 2):
   today = date.today()
   current_time = now.strftime("%H:%M:%S")
   d2 = today.strftime("%B %d, %Y")
-  print("start:", d2,"at", current_time)
+  # print("start:", d2,"at", current_time)
   ####
   tem_data_frame = initial_task_dataframe.copy()
   print(f"The {j}th round of runs:")
