@@ -193,8 +193,8 @@ for j in range(1, 2):
   total_time = 0
   total_time=time.time()-start_time
   # runtime for each round of PBQ on a normal machine in scenario
-  #   with one edge server and 24, 48, or 96 tasks, the runtime is 1054, 2053, or 3186 seconds, respectively.
-  #   with two edge servers and 24, 48, or 96 tasks, the runtime is 82, 160, or 317 seconds, respectively.
+  #   with one edge server and 24, 48, or 96 tasks, the runtime is approximately 1054, 2053, or 3186 seconds, respectively.
+  #   with two edge servers and 24, 48, or 96 tasks, the runtime is approximately 82, 160, or 317 seconds, respectively.
   print(f"total time of {j}th run is: {total_time}")
   # Get and print the memory usage
   memory_usage = get_memory_usage()
