@@ -35,7 +35,7 @@ The dataset includes user indices, task execution times ($c_i$), and deadlines (
 
 
 ## Citation
-If you found this code or our work useful, please cite it as:
+Kindly cite our paper as follows if you find this code useful:
 
 
 ```bibtex
