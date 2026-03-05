@@ -1,5 +1,9 @@
 # A Task Scheduler for Mobile Edge Computing Using Priority-based Reinforcement Learning (SSCI 2023)
 
+> The paper is published in [IEEE SSCI 2023](https://doi.org/10.1109/SSCI52147.2023.10371825).
+
+> The presenation file is accessible [here](./PBQ_SSCI2023.pdf).
+
 ## Overview
 In edge computing, the scheduling problem involves properly allocating tasks offloaded by edge users to edge servers. Therefore, scheduling the tasks at the appropriate time and allocating the right resources can be modeled as a multi-objective optimization problem in MEC. Moreover, each task has specific requirements, further adding to the complexity of the optimization problem.
 
